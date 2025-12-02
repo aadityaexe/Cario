@@ -64,9 +64,13 @@ export default function HomeScreen() {
               <Text className="text-[11px] text-zinc-400 ml-1">Patna, Bihar · India</Text>
             </View>
           </View>
-          <View className="w-10 h-10 rounded-full bg-emerald-400/90 items-center justify-center">
-            <Text className="text-xs font-semibold text-black">AK</Text>
-          </View>
+         <TouchableOpacity
+  className="w-10 h-10 rounded-full bg-emerald-400/90 items-center justify-center"
+  onPress={() => router.push("/profile")}  // ✅ this opens profile tab
+>
+  <Text className="text-xs font-semibold text-black">AK</Text>
+</TouchableOpacity>
+
         </View>
 
         {/* Top Banner Slider */}

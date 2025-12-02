@@ -177,8 +177,31 @@ export default function CarDetailsScreen() {
         </View>
       </ScrollView>
 
-      {/* Sticky bottom bar */}
+     
+           {/* Sticky bottom bar */}
       <View className="px-5 pb-5 pt-3 bg-neutral-950 border-t border-zinc-900">
+        {/* Rating button full width */}
+        <TouchableOpacity
+          className="w-full bg-emerald-400/10 border border-emerald-400/50 rounded-2xl px-4 py-3 flex-row items-center mb-3"
+          onPress={() =>
+            router.push({ pathname: "/rate-car", params: { car: name } })
+          }
+        >
+          <View className="w-8 h-8 rounded-full bg-emerald-400 items-center justify-center">
+            <Ionicons name="star-outline" size={16} color="black" />
+          </View>
+          <View className="ml-3 flex-1">
+            <Text className="text-[13px] text-white font-semibold">
+              Rate this car
+            </Text>
+            <Text className="text-[11px] text-zinc-400">
+              Help others decide
+            </Text>
+          </View>
+          <Ionicons name="chevron-forward" size={18} color="#71717a" />
+        </TouchableOpacity>
+
+        {/* Price + booking row */}
         <View className="flex-row items-center justify-between">
           <View>
             <Text className="text-[11px] text-zinc-400">Starting from</Text>
@@ -210,6 +233,7 @@ export default function CarDetailsScreen() {
           </TouchableOpacity>
         </View>
       </View>
+
     </SafeAreaView>
   );
 }
