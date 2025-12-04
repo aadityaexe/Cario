@@ -4,12 +4,23 @@ import { useRouter, useLocalSearchParams } from "expo-router";
 
 export default function OtpScreen() {
   const router = useRouter();
-  const { phone } = useLocalSearchParams();
+  const { phone } = useLocalSearchParams<{ phone?: string }>();
   const [otp, setOtp] = useState("");
+
+  // TEMP: hardcoded admin numbers for demo
+  const adminPhones = ["9999999999", "8888888888", "7777777777"]; // change to what you want
 
   const verifyOtp = () => {
     console.log("Verified:", phone, otp);
-    router.replace("/(tabs)/home");   // 👈 sends into tabbed home screen
+
+    // === FRONTEND ROLE CHECK (DEMO) ===
+    if (phone && adminPhones.includes(phone.toString())) {
+      // 👑 Admin → go to admin UI
+      router.replace("/admin");
+    } else {
+      // Normal user / owner → renter app tabs
+      router.replace("/(tabs)/home");
+    }
   };
 
   return (
