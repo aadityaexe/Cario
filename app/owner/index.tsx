@@ -105,9 +105,10 @@ export default function OwnerDashboard() {
         {/* Your cars */}
         <View className="flex-row items-center justify-between mb-3">
           <Text className="text-sm text-white font-semibold">Your cars</Text>
-          <TouchableOpacity onPress={() => router.push("/owner/my-cars")}>
-            <Text className="text-[11px] text-emerald-400">View all</Text>
-          </TouchableOpacity>
+        <TouchableOpacity onPress={() => router.push("/owner/bookings")}>
+  <Text className="text-[11px] text-emerald-400">View all</Text>
+</TouchableOpacity>
+
         </View>
 
         {ownerCars.map((car) => (

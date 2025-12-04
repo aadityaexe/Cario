@@ -79,10 +79,11 @@ export default function ProfileScreen() {
         </Text>
 
         <View>
-          <Row icon="call-outline" label="My number" value="+91 XXXXX XXXXX" />
-          <Row icon="car-sport-outline" label="Saved cars" />
-          <Row icon="cash-outline" label="Payment methods" />
-          <Row icon="settings-outline" label="App settings" />
+         <Row icon="call-outline" label="My number" onPress={() => router.push("/profile/my-number")} />
+       <Row icon="car-sport-outline" label="Saved cars" onPress={() => router.push("/profile/saved-cars")} />
+       <Row icon="cash-outline" label="Payment methods" onPress={() => router.push("/profile/payment-methods")} />
+       <Row icon="settings-outline" label="App settings" onPress={() => router.push("/profile/settings")} />
+
         </View>
 
         {/* KYC section */}
@@ -174,17 +175,21 @@ type RowProps = {
   icon: string;
   label: string;
   value?: string;
+  onPress?: () => void; // 👈 add this ✅
 };
 
-function Row({ icon, label, value }: RowProps) {
+
+function Row({ icon, label, value, onPress }: RowProps & { onPress?: () => void }) {
   return (
-    <View className="flex-row items-center bg-zinc-900 border border-zinc-800 rounded-full px-3 h-11 mb-2">
+    <TouchableOpacity
+      className="flex-row items-center bg-zinc-900 border border-zinc-800 rounded-full px-3 h-11 mb-2"
+      onPress={onPress} // ✅ now it works
+    >
       <Ionicons name={icon as any} size={18} color="#e5e5e5" />
       <Text className="text-[12px] text-zinc-200 ml-2 flex-1">{label}</Text>
-      {value ? (
-        <Text className="text-[11px] text-zinc-500 mr-1">{value}</Text>
-      ) : null}
+      {value && <Text className="text-[11px] text-zinc-500 mr-1">{value}</Text>}
       <Ionicons name="chevron-forward" size={16} color="#71717a" />
-    </View>
+    </TouchableOpacity>
   );
 }
+
