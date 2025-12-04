@@ -7,5 +7,5 @@ export default function MyNumberScreen() {
       <Text className="text-white text-xl font-bold mb-2">My Number</Text>
       <Text className="text-zinc-400">+91 XXXXX XXXXX</Text>
     </SafeAreaView>
-  );
+ );
 }
