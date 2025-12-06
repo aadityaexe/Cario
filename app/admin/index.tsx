@@ -103,12 +103,15 @@ export default function AdminDashboard() {
           Admin tools
         </Text>
 
-        <AdminRow
-          icon="shield-checkmark-outline"
-          label="KYC & reports"
-          sub="Flag suspicious activity, verify documents"
-          onPress={() => {}}
-        />
+     <AdminRow
+  icon="shield-checkmark-outline"
+  label="KYC & reports"
+  sub="Flag suspicious activity, verify documents"
+onPress={() => router.push("/admin/kyc-reports" as any)}
+
+/>
+
+
       </ScrollView>
     </SafeAreaView>
   );
